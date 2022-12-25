@@ -3,6 +3,14 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+// controllers
+use App\Http\Controllers\WorkloadController;
+use App\Http\Controllers\CourseList;
+use App\Http\Controllers\CurriculumController;
+use App\Http\Controllers\CurriculumPlanningController;
+use App\Http\Controllers\ProfessorListController;
+use App\Http\Controllers\UserProfileController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,13 +22,37 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',
+    [WorkloadController::class, 'workload']
+)->name('workload');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/course_list',
+    [CourseList::class, 'course_list']
+)->name('course_list');
+
+Route::get('/curriculum',
+    [CurriculumController::class, 'curriculum']
+)->name('curriculum');
+
+Route::get('/curriculum_planning',
+    [CurriculumPlanningController::class, 'curriculum_planning']
+)->name('curriculum_planning');
+
+Route::get('/professor_list',
+    [ProfessorListController::class, 'professor_list']
+)->name('professor_list');
+
+Route::get('/user_profile',
+    [UserProfileController::class, 'user_profile']
+)->name('user_profile');
+
+Route::get('/add_users',
+    [UserProfileController::class, 'add_users']
+)->name('add_users');
+
+//Route::get('/dashboard', function () {
+//    return view('dashboard');
+//})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
