@@ -50,6 +50,10 @@ Route::get('/add_users',
     [UserProfileController::class, 'add_users']
 )->name('add_users');
 
+Route::post('/post_users',
+    [UserProfileController::class, 'save_users']
+)->name('save_users');
+
 //Route::get('/dashboard', function () {
 //    return view('dashboard');
 //})->middleware(['auth', 'verified'])->name('dashboard');
