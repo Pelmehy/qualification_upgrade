@@ -38,9 +38,16 @@ Route::get('/curriculum_planning',
     [CurriculumPlanningController::class, 'curriculum_planning']
 )->name('curriculum_planning');
 
+// professors info
+
 Route::get('/professor_list',
     [ProfessorListController::class, 'professor_list']
 )->name('professor_list');
+
+Route::get('/professor_info/{id}',
+    [ProfessorListController::class, 'professor_info']
+)->name('professor_info');
+
 
 Route::get('/user_profile',
     [UserProfileController::class, 'user_profile']

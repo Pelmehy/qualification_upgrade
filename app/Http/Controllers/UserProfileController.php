@@ -65,7 +65,7 @@ class UserProfileController extends Controller
 
             $professor = new Professor();
             $professor->user_id = $user->id;
-            $professor->speciality_id = $specialty_id;
+            $professor->specialty_id = $specialty_id;
             $professor->save();
         }
 
