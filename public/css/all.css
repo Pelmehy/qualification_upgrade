@@ -4,6 +4,7 @@ html {
 
 body {
     height: 100%;
+    background:#eee;
 }
 
 .scrollarea {
@@ -33,11 +34,37 @@ small {
     top: 0;
 }
 
+.disaplayInput{
+    display: none;
+}
+
+/* add  users*/
+
+.add_students{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 0px;
+    gap: 15px;
+
+    position: sticky;
+    /*max-width: 250px !important;*/
+    height: 85px;
+    right: 19px;
+    bottom: 85px;
+}
+
+.std-btn{
+    width: 250px;
+}
+
+.hidden{
+    display: none !important;
+}
+
 /*    profile settings */
 
-body{
-    background:#eee;
-}
 .widget-author {
     margin-bottom: 58px;
 }
