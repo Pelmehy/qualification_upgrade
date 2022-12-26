@@ -41,4 +41,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function get($id)
+    {
+        User::select('id, user_type, name, email')->where('id', $id)->first();
+    }
 }
