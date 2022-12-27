@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('professor_id');
             $table->unsignedBigInteger('subject_id');
-            $table->unsignedBigInteger('speciality_id');
+            $table->unsignedBigInteger('specialty_id');
             $table->timestamps();
         });
     }
