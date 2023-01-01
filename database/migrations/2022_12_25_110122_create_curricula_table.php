@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -13,14 +14,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('curriculums', function (Blueprint $table) {
+        Schema::create('curricula', function (Blueprint $table) {
+            DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+
             $table->id();
-            $table->unsignedBigInteger('speciality_id');
+            $table->unsignedBigInteger('specialty_id');
             $table->unsignedBigInteger('subject_id');
-            $table->float('lecture_hours');
-            $table->float('pract_hours');
-            $table->float('lab_hours');
+            $table->unsignedBigInteger('professor_id');
+            $table->float('lecture_hours')->nullable();
+            $table->float('pract_hours')->nullable();
+            $table->float('lab_hours')->nullable();
             $table->timestamps();
+
+            DB::statement('SET FOREIGN_KEY_CHECKS = 1');
         });
     }
 
@@ -31,6 +37,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('curriculums');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        Schema::dropIfExists('curricula');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 };

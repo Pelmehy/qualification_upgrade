@@ -26,19 +26,35 @@ Route::get('/',
     [WorkloadController::class, 'workload']
 )->name('workload');
 
-Route::get('/course_list',
-    [CourseList::class, 'course_list']
-)->name('course_list');
+Route::post('/',
+    [WorkloadController::class, 'workload']
+)->name('post_workload');
 
-Route::get('/curriculum',
+//************************************************
+
+Route::get('/curriculum/{id}',
     [CurriculumController::class, 'curriculum']
 )->name('curriculum');
+
+Route::post('/curriculum/{id}',
+    [CurriculumController::class, 'curriculum']
+)->name('filter_or_print');
+
+//Route::get('/curriculum/download',
+//
+//)
+
+//************************************************
 
 Route::get('/curriculum_planning',
     [CurriculumPlanningController::class, 'curriculum_planning']
 )->name('curriculum_planning');
 
-// professors info
+Route::post('curriculum_post',
+    [CurriculumPlanningController::class, 'curriculum_save']
+)->name('curriculum_post');
+
+//************************************************
 
 Route::get('/professor_list',
     [ProfessorListController::class, 'professor_list']
@@ -48,6 +64,7 @@ Route::get('/professor_info/{id}',
     [ProfessorListController::class, 'professor_info']
 )->name('professor_info');
 
+//************************************************
 
 Route::get('/user_profile',
     [UserProfileController::class, 'user_profile']
