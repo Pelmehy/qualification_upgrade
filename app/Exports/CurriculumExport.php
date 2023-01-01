@@ -5,19 +5,18 @@ namespace App\Exports;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
 
-class UsersExport implements FromView
+class CurriculumExport implements FromView
 {
-    public function __construct($users)
+    public function __construct($curriculums)
     {
-        $this->users = $users;
+        $this->curriculums = $curriculums;
     }
-
     public function View(): View
     {
         return view(
-            'exports.passwords',
+            'exports.curriculum',
             [
-                'users' => $this->users,
+                'curriculums' => $this->curriculums,
             ]
         );
     }

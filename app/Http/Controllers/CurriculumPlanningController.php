@@ -57,6 +57,6 @@ class CurriculumPlanningController extends Controller
 
         }
 
-        return redirect()->route('curriculum');
+        return redirect()->route('curriculum', [$specialty_id]);
     }
 }

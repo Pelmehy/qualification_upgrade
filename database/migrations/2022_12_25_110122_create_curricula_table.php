@@ -21,9 +21,9 @@ return new class extends Migration
             $table->unsignedBigInteger('specialty_id');
             $table->unsignedBigInteger('subject_id');
             $table->unsignedBigInteger('professor_id');
-            $table->float('lecture_hours');
-            $table->float('pract_hours');
-            $table->float('lab_hours');
+            $table->float('lecture_hours')->nullable();
+            $table->float('pract_hours')->nullable();
+            $table->float('lab_hours')->nullable();
             $table->timestamps();
 
             DB::statement('SET FOREIGN_KEY_CHECKS = 1');

@@ -26,13 +26,23 @@ Route::get('/',
     [WorkloadController::class, 'workload']
 )->name('workload');
 
-Route::get('/course_list',
-    [CourseList::class, 'course_list']
-)->name('course_list');
+Route::post('/',
+    [WorkloadController::class, 'workload']
+)->name('post_workload');
 
-Route::get('/curriculum',
+//************************************************
+
+Route::get('/curriculum/{id}',
     [CurriculumController::class, 'curriculum']
 )->name('curriculum');
+
+Route::post('/curriculum/{id}',
+    [CurriculumController::class, 'curriculum']
+)->name('filter_or_print');
+
+//Route::get('/curriculum/download',
+//
+//)
 
 //************************************************
 
